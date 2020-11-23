@@ -1,6 +1,7 @@
 package com.e.revendocoroutine34
 
 import android.app.Application
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import com.google.gson.Gson
@@ -10,17 +11,19 @@ import java.io.IOException
 
 //essa classe Repositiry acessa o servidor e retorna os dados
 //implementar essas coisas
-class Repository(application: Application) : AndroidViewModel(application) {
 
-    //contexto para poder acessar o assets e o arquivo json dentro dele
-    private val context = getApplication<Application>().applicationContext
 
-    suspend fun getFilmes(): MutableList<Filme> {
+//tiramos aquelas coisas pq o repository não pode ser viewmodel
+class Repository {
+
+    //pega esse contexto atraves da função que é passada pela viewModel
+    suspend fun getFilmes(context: Context): ArrayList<Filme> {
+
         //esse delay apenas simula o tempo de espera da requisição
-        delay(2000)
+       delay(5000)
 
         //aqui pegamos os filmes do  arquivo JSON
-        var listaDeFilmes: MutableList<Filme> = mutableListOf()
+        var listaDeFilmes: ArrayList<Filme> = arrayListOf()
 
         try {
 
@@ -30,7 +33,7 @@ class Repository(application: Application) : AndroidViewModel(application) {
 
             //pega o jsonString, e com o GSON diz no que essa "Stringona"  será transformada através do TypeToken
             listaDeFilmes =
-                Gson().fromJson(jsonString, object : TypeToken<MutableList<Filme>>() {}.type)
+                Gson().fromJson(jsonString, object : TypeToken<ArrayList<Filme>>() {}.type)
 
             return listaDeFilmes
 

@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_filme.view.*
 
-class FilmesAdapter(val listaDeFilmes: MutableList<Filme>) :
+class FilmesAdapter(val listaDeFilmes: ArrayList<Filme>) :
     RecyclerView.Adapter<FilmesAdapter.FilmesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmesViewHolder {
