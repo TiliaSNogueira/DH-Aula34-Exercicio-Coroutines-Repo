@@ -29,7 +29,7 @@ class FilmesAdapter(val listaDeFilmes: ArrayList<Filme>) :
     //não consegui usar o size como MutableLIveData
     override fun getItemCount() = listaDeFilmes.size
 
-
+    //o nome dentro dos paramentros da FilmesViewHolder não precisa ser igual ao da view que criamos no onCreateView
     inner class FilmesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val tituloFilme: TextView = itemView.tv_item_titulo_filme

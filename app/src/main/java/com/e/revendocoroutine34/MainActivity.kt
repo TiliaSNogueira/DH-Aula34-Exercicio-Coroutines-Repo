@@ -31,11 +31,13 @@ class MainActivity() : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //NÃO PRECISA DESSAS COISAS
       //  var listaDeFilmes: ArrayList<Filme> = arrayListOf()
-        var listaDeFilmes: ArrayList<Filme> = arrayListOf()
+      //  var listaDeFilmes: ArrayList<Filme> = arrayListOf()
 
-
-        val adapterFilmes = FilmesAdapter(listaDeFilmes)
+        //configurando o recycler view
+        //   rv_main.adapter = adapterFilmes
+      //  val adapterFilmes = FilmesAdapter(listaDeFilmes)
 
         viewModel.getFilmesRepo()
 
@@ -46,10 +48,12 @@ class MainActivity() : AppCompatActivity() {
 
 
         //configurando o recycler view
-        rv_main.adapter = adapterFilmes
         rv_main.layoutManager = LinearLayoutManager(this)
         rv_main.setHasFixedSize(true)
 
+
+        //ASSIM PASSOU DE MANEIRA BEM MAIS SIMPLES, NA HORA DE CONFIGURAR O ADAPTER
+        // JÁ PASSA ALISTA DIRETO NO OBSERVÁVEL
 
     }
 
